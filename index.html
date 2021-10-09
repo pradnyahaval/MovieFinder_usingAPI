@@ -1,0 +1,92 @@
+<!--html code-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+    
+    <!--my css file-->
+    <link rel="stylesheet" href="style.css">
+
+    <!--google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    
+    <title>FindYourMovie</title>
+</head>
+
+<body>
+    <!--heading and navbar-->
+    <div class="navbar">
+        <a href="#" id="feedback" onclick="feedback()">Feedback</a>
+    </div>
+    <div class="container">
+        <img src="img/popcorn.png" alt="icon" style="width:100px; display: inline-block;">
+        <h1 style="display: inline-block;">Find Your Movie</h1>  
+        <h4>place to find your favourite movies</h4>
+    </div>
+
+    <!--search bar-->
+    <form class="search" id="searchform">
+        <input id="description" type="search" placeholder="enter movie name or some description here">
+        <input type="submit" placeholder="search" value="Search"  id="search">
+    </form>   
+        
+    <!--list of movies-->
+    <main id="main">
+        
+    </main>
+    
+    <!--details of movie-->
+    <div id="popup">
+        
+    </div>  
+
+    <!--feedback form-->    
+    <div id="myForm" style="display: none">
+        <form class="feedback active" id="sendForm">
+            <div class="header">
+                <div class="left">
+                    <button class="close-button" id="close" onClick="closeForm()">&times;</button>
+                </div>
+                <div class="right">
+                    <h3>Send your feedback to us</h3>
+                </div>
+            </div>
+            <div class="jotForm"><script type="text/javascript" src="https://form.jotform.com/jsform/212694234858061"></script></script></div>
+            
+        </form>
+        <div class="active" id="overlay"></div>
+    </div>     
+
+    <!--footer-->
+    <br>
+    <br>
+    <div class="footer">
+        <p>follow us on</p>
+        <a href="https://www.facebook.com" target="_blank"><img src="img/facebook.png" alt="facebook"></a>
+        <a href="https://www.instagram.com" target="_blank"><img src="img/instagram.png" alt="instagram"></a>
+        <a href="https://www.twitter.com" target="_blank"><img src="img/twitter.png" alt="twitter"></a>
+    </div>
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
+    <!--my js file-->
+    <script src="index.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+

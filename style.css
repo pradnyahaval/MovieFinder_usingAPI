@@ -1,0 +1,342 @@
+/*css code*/
+*{
+    box-sizing: border-box;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+:root{
+    --first-color: #04060F;
+    --second-color: #03353E;
+    --third-color: #0294A5;
+    --fourth-color: #A79C93;
+    --fifth-color: #C1403D;
+}
+
+body{
+    margin: 0;
+    justify-content: center;
+    background-color: var(--first-color);
+}
+
+/*navbar - start*/
+.navbar{
+    background-color:var(--first-color);
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+    box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+.navbar a{
+    text-decoration: none;
+    font-size: 28px;
+    display: block;
+    float: left;
+    color: var(--fourth-color);
+    margin-left: 20px;
+}
+
+.navbar a:hover {
+    background-color: transparent;
+    color: var(--fifth-color);
+}
+/*navbar - end*/
+
+/*search area - start*/
+.container, .search{
+    text-align: center;
+    font-size: 40px;
+}
+
+.container h1 , h4{
+    background: -webkit-linear-gradient(var(--fifth-color),rgb(228, 199, 199));
+    -webkit-background-clip: text;
+    background-clip: none;
+    -webkit-text-fill-color: transparent;
+}
+
+.search input[type="search"]{
+    display: inline-block;
+    width: 800px;
+    margin-bottom: 10px;
+    background-color: transparent;
+    border: 2px solid var(--second-color);
+	padding: 10px 15px;
+	font-size: 20px;  
+    color: white;
+	-webkit-appearance: none;
+}
+
+.search input[type="search"]:focus{
+    outline: 0;
+    background-color: var(--second-color);
+}
+
+.search input[type="search"]::placeholder{
+    color: var(--third-color);
+    opacity: 40%;
+}
+
+.search input[type="submit"]{
+    display: inline-block;
+	padding: 10px 15px;
+	font-size: 20px;
+	border-radius: 0;
+	-webkit-appearance: none;
+	border: 1px solid transparent;
+	cursor: pointer;
+    color: var(--third-color);
+	background-color: var(--second-color);
+}
+
+.search input[type="submit"]:hover{
+    background-color: var(--third-color);
+    color: var(--first-color);
+}
+/*search area - end*/
+
+/*list of movies - start*/
+main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.output{
+    width: 400px;
+    margin: 15px;
+    margin-bottom: 100px;
+    padding: 8px;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px 5px rgba(0, 0, 0, 0.2);
+    background-color: var(--second-color);
+    position: relative;
+    overflow: hidden;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+
+.output img{
+    width: 100%;
+}
+
+.output .movie-info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    letter-spacing: 0.5px;
+}
+
+.output .movie-info h3{
+    margin-top: 0;
+    color: white;
+}
+
+.output .button{        /*details button*/
+    border:2px solid var(--first-color);
+    border-radius: 5px;
+    padding: 10px 10px;
+    color: white;
+    background-color: transparent;
+    box-shadow: inset 0px 1px 0px rgba(255,255,255,.3);
+    cursor: pointer;
+}
+
+.output .button:hover{
+    border-color: #7a7a7a;
+}
+.output .button:active{
+    background-color: #999999;
+    box-shadow: inset 0px 1px 0px rgba(255,255,255,.3);
+}
+
+.output .movie-info span{
+    background-color: var(--first-color);
+    padding: 5px 5px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.output .movie-info span.white{
+    color: white;
+}
+
+.output:hover .overview{
+    transform: translateY(0)
+}
+/*list of movies - end*/
+
+/*movie details - start*/
+.details{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid white;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: transparent;
+    opacity: 1;
+    width: 800px;
+    max-width: 80%;
+    height: auto;
+    padding: 10px;
+}
+
+.details.active{
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.details .header{
+    padding: 10px 15px;
+    display:flex;
+    align-items:flex-end;
+}
+
+.details .header .close-button{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.details .left{
+    width: 50%; 
+    float:left;
+}
+
+.details .right{
+    width: 50%; 
+    float: right;
+    color: white;
+    border-left: 1px solid gray;
+}
+
+.details .image img{
+    width: 95%;
+}
+
+.details .detail-info{
+    padding: 10px 15px;
+}
+.details .detail-info p{
+    color: white;
+    font-size: 18px;
+}
+
+.details .detail-info h3{
+    text-align: center; 
+    color: rgb(202, 202, 0);
+}
+
+
+.details table{
+    width: 100%;
+}
+
+.details table td{
+    border-bottom: 1px solid rgb(223, 6, 6);
+}
+
+#overlay{
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    pointer-events: none;    /*so we can't click on background buttons*/
+}
+
+#overlay.active{
+    opacity: 1;
+    pointer-events: all;
+}
+/*movie details - end*/
+
+/*feedback form - start*/
+.feedback{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid white;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: transparent;
+    opacity: 1;
+    width: 800px;
+    max-width: 60%;
+    max-height: 800px;
+}
+
+.feedback.active{
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.feedback .header{
+    display:flex;
+    align-items:flex-end;
+    background-color: var(--second-color);
+    border-top: 1px solid white;
+    border-radius: 10px 10px 0 0;
+}
+.feedback .header .left{
+    width: 30%; 
+    float:left;
+}
+
+.feedback .header .right{
+    width: 70%; 
+    float: right;
+}
+.feedback .header .close-button{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    color: white;
+    font-size: 35px;
+    margin-left: 5px;
+    margin-bottom: 20px;
+}
+
+.feedback .header h3{
+    color: white;
+    text-align: left;
+    font-size: 28px;
+}
+
+.feedback .jotForm{
+    border-top: 1px solid white;
+}
+/*feedback form - end*/
+
+/*footer - start*/
+.footer {
+    width: 100%;
+    /*background-color: var(--second-color);*/
+    height: 85px;
+    color: white;
+    text-align: center;
+    clear: both;
+    position: relative;
+    height: 80px;
+    bottom: 0;
+    font-size: 22px;
+ }
+
+.footer img{
+    width: 30px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+/*footer - end*/
